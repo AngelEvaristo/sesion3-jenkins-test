@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Validar origen'){
             steps{
-                bat 'Esto fue ejecutado desde un JENKINSFILE'
+                echo 'Esto fue ejecutado desde un JENKINSFILE'
             }
         }
         stage ('Preparar entorno'){
