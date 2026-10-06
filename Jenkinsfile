@@ -59,7 +59,8 @@ pipeline {
             cleanWs()
         }
         success {
-            echo "Compilacion completada con exito"
+            echo "Compilacion completada con exito, disparando proyecto"
+            build job: 'pipeline_estilolibre'
         }
         failure{
             echo "Falla en compilacion"
