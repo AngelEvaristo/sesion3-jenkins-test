@@ -3,6 +3,7 @@ pipeline {
 
     parameters {
         choice(name: 'BRANCH', choices: ['main','develop'], description: 'Seleccionar rama')
+        booleanParam(name: 'RUNTEST', default: true, description: 'Desea ejecutar pruebas')
     }    
     
     environment {
@@ -43,7 +44,10 @@ pipeline {
             }
         }
         
-        stage('Ejeecutar test'){
+        stage('Ejecutar test'){
+            when {
+                expression { params.RUNTEST }                            
+            }    
             steps {
                 bat 'dotnet test --verbosity normal'
             }
