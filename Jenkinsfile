@@ -1,7 +1,9 @@
 pipeline {
-    agent {
-        label 'windows'
-    }
+    agent any
+
+    parameters {
+        choice(name: 'BRANCH', choices: ['main','develop'], description: 'Seleccionar rama')
+    }    
     
     environment {
         DOTNET_VERSION = "9.0"
@@ -10,7 +12,7 @@ pipeline {
     stages {
         stage('Clone from github'){
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'AngelEvaristo', url: 'https://github.com/AngelEvaristo/sesion3-jenkins-test.git']])
+                checkout scmGit(branches: [[name: '*/${params.BRANCH}']], extensions: [], userRemoteConfigs: [[credentialsId: 'AngelEvaristo', url: 'https://github.com/AngelEvaristo/sesion3-jenkins-test.git']])
             }
         }
         stage('Validar origen'){
