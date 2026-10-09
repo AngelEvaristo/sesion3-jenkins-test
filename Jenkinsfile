@@ -27,6 +27,8 @@ pipeline {
                     echo "Validando version de Dotnet"
                     bat """
                         dotnet --version || echo .NET no encuentrado
+                        make --version
+                        dir
                     """
                 }
             }
