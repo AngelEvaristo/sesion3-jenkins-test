@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         choice(name: 'BRANCH', choices: ['main','develop'], description: 'Seleccionar rama')
-        booleanParam(name: 'RUNTEST', default: true, description: 'Desea ejecutar pruebas')
+        booleanParam(name: 'RUNTEST', defaultValue: true, description: 'Desea ejecutar pruebas')
     }    
     
     environment {
