@@ -36,7 +36,7 @@ pipeline {
         
         stage('Restaurar dependencias'){
             steps{
-                bat 'dotnet restore'
+                bat 'make restore'
             }
         }
         
