@@ -66,7 +66,6 @@ pipeline {
         }
         success {
             echo "Compilacion completada con exito, disparando proyecto"
-            build job: 'pipeline_estilolibre'
         }
         failure{
             echo "Falla en compilacion"
