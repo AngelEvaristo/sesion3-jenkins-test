@@ -40,7 +40,7 @@ pipeline {
         
         stage('compilacion'){
             steps{
-                bat 'dotnet build --configuration Release'
+                bat 'make build'
             }
         }
         
@@ -49,14 +49,14 @@ pipeline {
                 expression { params.RUNTEST }                            
             }    
             steps {
-                bat 'dotnet test --verbosity normal'
+                bat 'make test'
             }
         }
         
         stage ('Publicar artefacto'){
             steps{
-                bat 'dotnet publish --configuration Release --output publish'
-                archiveArtifacts artifacts: 'publish/**', followSymlinks: false
+                bat 'make publish'
+                archiveArtifacts artifacts: 'published/**', followSymlinks: false
             }
         }
     }
