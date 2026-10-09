@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Clone from github'){
             steps {
-                checkout scmGit(branches: [[name: '*/${params.BRANCH}']], extensions: [], userRemoteConfigs: [[credentialsId: 'AngelEvaristo', url: 'https://github.com/AngelEvaristo/sesion3-jenkins-test.git']])
+                checkout scmGit(branches: [[name: "*/${params.BRANCH}"]], extensions: [], userRemoteConfigs: [[credentialsId: 'AngelEvaristo', url: 'https://github.com/AngelEvaristo/sesion3-jenkins-test.git']])
             }
         }
         stage('Validar origen'){
